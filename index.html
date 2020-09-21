@@ -48,13 +48,41 @@
           this.iluminarSecuencia()
         }
 
+        transformarNumeroAColor(numero){
+          switch(numero){
+            case 0: 
+              return 'celeste';
+            case 1:
+              return 'violeta';
+            case 2:
+              return 'naranja';
+            case 3: 
+              return 'verde';
+            default:
+              break;
+          }
+        }
+
         iluminarSecuencia(){
-          
+          for(var i = 0; i < this.nivel; i++){
+            var color = this.transformarNumeroAColor(this.secuencia[i]);
+            this.iluminarColor(color)
+          }
+        }
+
+        iluminarColor(color){
+          this.colores[color].classList.add('light');
+          setTimeout(()=>this.apagarColor(color), 500)
+
+        }
+
+        apagarColor(color){
+          this.colores[color].classList.remove('light');
         }
       }
 
       function empezarJuego() {
-        window.juego = new Juego()
+        var juego = new Juego()
       }
     </script>
   </body>
