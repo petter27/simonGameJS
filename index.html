@@ -64,9 +64,10 @@
         }
 
         iluminarSecuencia(){
-          for(var i = 0; i < this.nivel; i++){
-            var color = this.transformarNumeroAColor(this.secuencia[i]);
-            this.iluminarColor(color)
+          console.log(this.secuencia);
+          for(let i = 0; i < 7; i++){
+            let color = this.transformarNumeroAColor(this.secuencia[i]);
+            setTimeout(()=> this.iluminarColor(color), 1000 * i)
           }
         }
 
